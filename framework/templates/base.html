@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}Give us your Profile today!{% endblock %}</title>
+    <style>
+    a {
+    color: black;
+    }
+
+    div.head{
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      padding: 2px;
+      height: 10%;
+      width: 100%;
+    }
+
+    div.head_log {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      padding: 10px 10px 10px 10px;
+      border: 1px solid #eeeeee;
+      background: #eeeeee;
+      border-radius: 50px;
+    }
+
+    div.login {
+      position: absolute;
+      top: 15%;
+      right: 0%;
+      padding: 20px;
+      height: 80%;
+      box-shadow: -10px 10px;
+      background: #eeeeee;
+    }
+
+    div.content{
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      top: 40%;
+      left: 50%;
+      margin: -100px 0 0 -150px;
+      padding: 10px 10px 10px 10px;
+      background: #eeeeee;
+      box-shadow: -10px 10px;
+    }
+
+    </style>
+
+  </head>
+  <body>
+    <header>
+      <div class = "head">
+      <h1>Profile Storers Inc.</h1>
+      <hr>
+      </div>
+      <div class="head_log">
+      
+      {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">logout</a>
+      {% else %}
+        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'signup' %}">Signup</a>
+      {% endif %}
+      </div>
+    </header>
+    <main>
+      {% block content %}
+      {% endblock %}
+    </main>
+  </body>
+</html>

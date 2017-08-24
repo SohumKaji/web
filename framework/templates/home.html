@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class ="content">
+  <h2>Hello, {{ user.username }}!</h2><br>
+  You were born on, <b>{{user.profile.birth_date}} </b> <br>
+  That means you are <b>{{user.profile.age}}</b> years old! Wow!
+
+  </div>
+{% endblock %}
